@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{% url 'filme_create' %}" class="btn btn-primary mb-3">Criar Filme</a>
+
+<ul>
+    {% for filme in object_list %}
+        <li>{{ filme.titulo }} - {{ filme.diretor }}
+            <img src="{{ filme.capa.url }}" alt="{{ filme.titulo }}" width=100>
+            <a href="{% url 'filme_detail' filme.pk %}" class="btn btn-primary">Detalhes</a>
+            <a href="{% url 'filme_update' filme.pk %}" class="btn btn-secondary">Editar</a>
+            <a href="{% url 'filme_delete' filme.pk %}" class="btn btn-danger">Excluir</a>
+        </li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ playlists.nome }}</h2>
+<ul>
+    {% for playlist in playlists.filmes.all %}
+    <li>{{ filme.titulo }} - {{ filme.diretor }} - <img src="{{ filme.capa.url }}" alt="{{ filme.titulo }}" width=100></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'playlist_update' playlists.pk %}">Editar</a>
+<a href="{% url 'playlist_delete' playlists.pk %}">Excluir</a>
+
+{% endblock %}

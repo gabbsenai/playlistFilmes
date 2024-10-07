@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ object.titulo }}</h2>
+<p>Artista: {{ object.diretor }}</p>
+<p>Playlists:
+    {% for playlist in object.playlist_set.all %}
+        {{ playlist.nome }}
+    {% endfor %}
+</p>
+
+{% endblock %}
